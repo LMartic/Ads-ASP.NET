@@ -39,10 +39,10 @@ namespace Ads.EfCommands.EntityFramework
             });
 
             Context.SaveChanges();
-            var user = _userManager.FindByIdAsync(request.UserId);
+            var user = _userManager.FindByIdAsync(request.UserId).Result;
             _emailSender.Subject = "Uspesno kreiran oglas";
             _emailSender.Body = "Uspesno ste kreirali oglas";
-            _emailSender.ToEmail = "danijelboksan@gmail.com";
+            _emailSender.ToEmail = user.Email;
             _emailSender.Send();
         }
     }
