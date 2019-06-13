@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Ads.Application.Dto.CreateSubCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of SubCategories</h1>
+
+<div>
+    <a class="btn btn-primary" asp-controller="SubCategory" asp-action="Add"> Create New</a>
+</div>
+
+<div class="row">
+    <table class="table table-responsive">
+        <thead>
+        <tr>
+            <th>SubCategory</th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        @foreach (var element in Model)
+        {
+            <tr>
+                <td>@element.Name</td>
+                <td>@element.CategoryName</td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>
+<div>
+    <a class="btn btn-link" asp-action="Index" asp-controller="Home"> Back To HomePage</a>
+</div>

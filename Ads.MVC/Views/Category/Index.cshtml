@@ -1,0 +1,20 @@
+﻿
+@model IEnumerable<Ads.Application.Dto.CreateCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List Of Categories</h1>
+<div>
+    <a class="btn btn-primary" asp-action="Add">Create new </a>
+</div>
+<ul class="list-group">
+    @foreach (var element in Model)
+    {
+    <li class="list-group-item">@element.Name</li>
+    }
+</ul>
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Home Page</a>
+</div>
+

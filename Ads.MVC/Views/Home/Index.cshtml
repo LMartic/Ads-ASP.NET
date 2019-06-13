@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Ads.Application.Dto.ListAdDto>
+@{
+    ViewData["Title"] = "Index";
+}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<div class="jumbotron">
+    <form method="get" asp-action="Index">
+        <input class="form-control" type="text" name="Subject" placeholder="Subject Search" />
+        <input class="form-control" name="Description" placeholder="Description Search" />
+        <input class="form-control" name="CategoryName" placeholder="Category Search" />
+        <input type="submit" class="btn btn-success mt-2" value="Search" />
+        <input type="submit" class="btn btn-success mt-2" id="clearFilter" value="Clear Filter" />
+    </form>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+<div>
+    <a class="btn btn-success mb-3" asp-action="Add">Create New</a>
+</div>
+}
+<div class="row">
+
+
+    @foreach (var element in Model)
+    {
+    <div class="card mr-2 mt-2">
+        <div class="card card-header">
+            #@element.Id
+        </div>
+
+        <div class="card-body">
+            <p class="card-text"><span class="text-black-50 font-weight-bold">Subject</span> @element.Subject</p>
+            <p class="card-text"><span class="text-black-50 font-weight-bold">Description</span> @element.Description</p>
+            <p class="card-text"><span class="text-black-50 font-weight-bold">Category</span> @element.CategoryName</p>
+            <p class="card-text"><span class="text-black-50 font-weight-bold">SubCategory</span> @element.SubCategoryName</p>
+            <p class="card-text"><span class="text-black-50 font-weight-bold">Created By</span> @element.UserName</p>
+        </div>
+        <div class="card-footer">
+            @if (User.IsInRole("Admin") || User.Identity.Name == element.UserName)
+            {
+            <p>
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@element.Id">Delete</a>
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@element.Id">Edit</a>
+            </p>
+            }
+        </div>
+    </div>
+    }
+
+</div>
+<script>
+    document.getElementById('clearFilter').onclick = function (event) {
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "text") {
+                inputs[i].value = "";
+            }
+        }
+
+    }
+
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Ads.DataAccess.Domain.ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of Users</h1>
+<div >
+    <a class="btn btn-primary" asp-action="Create">Create new </a>
+
+</div>
+
+<ul class="list-group">
+    @foreach (var user in Model)
+{
+    <li class="list-group-item">@user.Email</li>
+}
+</ul>
