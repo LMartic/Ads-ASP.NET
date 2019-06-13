@@ -8,5 +8,5 @@ password
 member@domain.com
 password
 
-Da bi aplikacije radila u potpunosti ispravno potrebmo je da u projektu Ads.API Ads.MVC u fajlu appsettings.json unesu podesavanja za email
+Da bi aplikacije radila u potpunosti ispravno potrebno je da u projektu Ads.API Ads.MVC u fajlu appsettings.json unesu podesavanja za email
 kako bi aplikacija mogla da salje mailove kada je kreiran ogals
