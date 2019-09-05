@@ -1,6 +1,6 @@
 ﻿using Ads.DataAccess.Domain;
 using Ads.DataAccess.EfDataAccess;
-using Ads.EfCommands.EntityFramework;
+using Ads.Infrastructure.EntityFramework;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -24,6 +24,7 @@ namespace Ads.API
             }
 
             host.Run();
+
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

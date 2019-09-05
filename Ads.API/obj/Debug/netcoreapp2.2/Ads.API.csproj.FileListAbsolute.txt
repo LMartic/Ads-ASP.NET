@@ -1,0 +1,42 @@
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Application.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.csprojAssemblyReference.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.csproj.CoreCompileInputs.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.RazorAssemblyInfo.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.RazorAssemblyInfo.cs
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.AssemblyInfoInputs.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.AssemblyInfo.cs
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.RazorTargetAssemblyInfo.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.deps.json
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.runtimeconfig.json
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.runtimeconfig.dev.json
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Application.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.csproj.CopyComplete
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Infrastructure.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Infrastructure.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.deps.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.runtimeconfig.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.runtimeconfig.dev.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.API.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Application.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Infrastructure.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Application.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\bin\Debug\netcoreapp2.2\Ads.Infrastructure.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.csprojAssemblyReference.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.csproj.CoreCompileInputs.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.RazorAssemblyInfo.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.RazorAssemblyInfo.cs
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.AssemblyInfoInputs.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.AssemblyInfo.cs
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.RazorTargetAssemblyInfo.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.csproj.CopyComplete
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.API\obj\Debug\netcoreapp2.2\Ads.API.pdb

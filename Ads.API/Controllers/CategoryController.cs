@@ -12,44 +12,24 @@ namespace Ads.API.Controllers
     [Authorize(Roles = "Admin")]
     public class CategoryController : ControllerBase
     {
-        private readonly ICreateCategoryCommand _createCategoryCommand;
-        private readonly IListCategoryCommand _listCategoryCommand;
-        private readonly IDeleteCategoryCommand _deleteCategoryCommand;
+        private readonly ICreateCategoryCommand _command;
+        private readonly IGetCategoriesCommand _getCategoriesCommand;
 
-        public CategoryController(ICreateCategoryCommand createCategoryCommand,
-            IListCategoryCommand listCategoryCommand,
-            IDeleteCategoryCommand deleteCategoryCommand)
+        public CategoryController(ICreateCategoryCommand command, IGetCategoriesCommand getCategoriesCommand)
         {
-            _createCategoryCommand = createCategoryCommand;
-            _listCategoryCommand = listCategoryCommand;
-            _deleteCategoryCommand = deleteCategoryCommand;
+            _command = command;
+            _getCategoriesCommand = getCategoriesCommand;
         }
+
+
         [HttpGet]
-        public IActionResult GetAllCategories(EmptySearch request)
+        [Authorize(Roles = "Admin,Member")]
+        public IActionResult GetAll([FromQuery]CategorySearch request)
         {
             try
             {
-                var response = _listCategoryCommand.Execute(request);
-                return StatusCode(200, response);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteCategory(int id, [FromBody]CreateCategoryDto request)
-        {
-            request.Id = id;
-            try
-            {
-                _deleteCategoryCommand.Execute(request);
-                return Ok();
-            }
-            catch (EntityNotFoundException ex)
-            {
-                return StatusCode(500, ex.Message);
+                var response = _getCategoriesCommand.Execute(request);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -59,24 +39,26 @@ namespace Ads.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCategory([FromBody] CreateCategoryDto categoryDto)
+        public IActionResult Create([FromBody] CreateCategoryDto viewModel)
         {
-            if (string.IsNullOrEmpty(categoryDto.Name))
+            if (string.IsNullOrEmpty(viewModel.Name))
                 return BadRequest("Name polje mora imate vrednost");
 
             try
             {
-                _createCategoryCommand.Execute(categoryDto);
-                return StatusCode(200);
+                _command.Execute(viewModel);
+                return StatusCode(201);
             }
-            catch (EntityNotFoundException ex)
+            catch (EntityNotFoundException e)
             {
-                return UnprocessableEntity(ex.Message);
+                return UnprocessableEntity(e.Message);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, ex.Message);
+
+                return StatusCode(500, e.Message);
             }
+
         }
     }
 }

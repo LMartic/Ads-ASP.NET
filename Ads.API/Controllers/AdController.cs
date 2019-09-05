@@ -1,42 +1,58 @@
-﻿using Ads.Application.Commands;
+﻿using Ads.API.ViewModels;
+using Ads.Application.Commands;
 using Ads.Application.Dto;
+using Ads.Application.Exceptions;
 using Ads.Application.Searches;
 using Ads.DataAccess.Domain;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Ads.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
+    [Authorize(Roles = "Admin,Member")]
+    [EnableCors("AllowAll")]
     public class AdController : ControllerBase
     {
         private readonly ICreateAdCommand _createAdCommand;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IListAdCommand _command;
-        private readonly IEditAdCommand _editAdCommand;
+        private readonly IGetAdsCommand _getAdsCommand;
         private readonly IDeleteAdCommand _deleteAdCommand;
+        private readonly IEditAdCommand _editAdCommand;
+        private readonly IGetAdOffersCommand _getAdOffersCommand;
+        private readonly IGetAdCommentsCommand _getAdCommentsCommand;
+
 
         public AdController(ICreateAdCommand createAdCommand,
             UserManager<ApplicationUser> userManager,
-            IListAdCommand command,
+            IGetAdsCommand getAdsCommand,
+            IDeleteAdCommand deleteAdCommand,
             IEditAdCommand editAdCommand,
-            IDeleteAdCommand deleteAdCommand)
+            IGetAdOffersCommand getAdOffersCommand,
+            IGetAdCommentsCommand getAdCommentsCommand)
         {
             _createAdCommand = createAdCommand;
             _userManager = userManager;
-            _command = command;
-            _editAdCommand = editAdCommand;
+            _getAdsCommand = getAdsCommand;
             _deleteAdCommand = deleteAdCommand;
+            _editAdCommand = editAdCommand;
+            _getAdOffersCommand = getAdOffersCommand;
+            _getAdCommentsCommand = getAdCommentsCommand;
         }
 
+
         [HttpGet]
-        public IActionResult GetAllAds([FromQuery] AdSearch model)
+        [AllowAnonymous]
+        public IActionResult GetAll([FromQuery] AdSearch request)
         {
             try
             {
-                var response = _command.Execute(model);
+                var response = _getAdsCommand.Execute(request);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -45,47 +61,73 @@ namespace Ads.API.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult CreateAd([FromBody] CreateAdDto request)
+        [HttpGet("{id}")]
+        public IActionResult GetOffers(int id)
         {
-            if (string.IsNullOrEmpty(request.Subject))
-                return BadRequest("Subject mora imati vrednost");
-            request.UserId = GetUserId();
             try
             {
-                _createAdCommand.Execute(request);
-                return StatusCode(200, "Uspesno dodato");
+                var response = _getAdOffersCommand.Execute(new AdOfferSearch()
+                {
+                    AdId = id,
+                    UserId = GetUserId().Result
+                });
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, ex.Message);
+                return StatusCode(500, e.Message);
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult EditAd(int id, [FromBody]EditAdDto model)
+        [HttpGet("{id}")]
+        [ActionName("GetAllComments")]
+        [AllowAnonymous]
+        public IActionResult GetComments(int id)
         {
-            model.Id = id;
-            model.UserId = GetUserId();
             try
             {
-                _editAdCommand.Execute(model);
-                return StatusCode(200, "Uspesno azurirano");
+                var response = _getAdCommentsCommand.Execute(id);
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, ex.Message);
+                return StatusCode(500, e.Message);
+            }
+        }
+        [HttpPost]
+        public IActionResult Create([FromBody] AdViewModel viewModel)
+        {
+            try
+            {
+                _createAdCommand.Execute(new CreateAdDto()
+                {
+                    Subject = viewModel.Subject,
+                    UserId = GetUserId().Result,
+                    Description = viewModel.Description,
+                    CategoryId = viewModel.CategoryId,
+                });
+                return StatusCode(201);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
+            }
+            catch (Exception e)
+            {
+
+                return StatusCode(500, e.Message);
             }
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteAd(int id, [FromBody] DeleteAdDto model)
+        public IActionResult Delete(int id)
         {
-            model.Id = id;
-            model.UserId = GetUserId();
+            var request = new DeleteAdDto();
+            request.Id = id;
+            request.UserId = GetUserId().Result;
             try
             {
-                _deleteAdCommand.Execute(model);
+                _deleteAdCommand.Execute(request);
                 return Ok();
             }
             catch (Exception ex)
@@ -94,9 +136,26 @@ namespace Ads.API.Controllers
             }
         }
 
-        private string GetUserId()
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] EditAdDto request)
         {
-            var user = _userManager.FindByNameAsync(User.FindFirst(ClaimTypes.NameIdentifier).Value).Result;
+            request.Id = id;
+            try
+            {
+                _editAdCommand.Execute(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+
+        private async Task<string> GetUserId()
+        {
+            var user = await _userManager.FindByNameAsync(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             return user.Id;
         }
     }

@@ -1,10 +1,10 @@
-﻿using Ads.API.Extenisions;
+﻿using Ads.API.Extensions;
 using Ads.Application.Commands;
 using Ads.Application.Interfaces;
 using Ads.DataAccess.Domain;
 using Ads.DataAccess.EfDataAccess;
-using Ads.EfCommands.Auth;
-using Ads.EfCommands.EntityFramework;
+using Ads.Infrastructure.Auth;
+using Ads.Infrastructure.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,29 +28,68 @@ namespace Ads.API
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+
+                options.AddPolicy("AllowAll",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
+
+
             services.AddDbContext<AdsContext>();
             services.AddTransient<ICreateCategoryCommand, EfCreateCategoryCommand>();
-            services.AddTransient<IListCategoryCommand, EfListCategoryCommand>();
-            services.AddTransient<IDeleteCategoryCommand, EfDeleteCategoryCommand>();
-            services.AddTransient<ICreateSubCategoryCommand, EfCreateSubCategoryCommand>();
-            services.AddTransient<IListSubCategoryCommand, EfListSubCategoryCommand>();
-            services.AddTransient<IJwtFactory, JwtFactory>();
             services.AddTransient<ICreateAdCommand, EfCreateAdCommand>();
-            services.AddTransient<IListAdCommand, EfListAdCommand>();
-            services.AddTransient<IEditAdCommand, EfEditAdCommand>();
+            services.AddTransient<IGetCategoriesCommand, EfGetCategoriesCommand>();
+            services.AddTransient<IGetAdsCommand, EfGetAdsCommands>();
+            services.AddTransient<IJwtFactory, JwtFactory>();
             services.AddTransient<IDeleteAdCommand, EfDeleteAdCommand>();
-            services.AddTransient<IEmailSender, SmtpEmailSender>();
+            services.AddTransient<IEditAdCommand, EfEditAdCommand>();
+            services.AddTransient<ICreateRemoveFollowerCommand, EfCreateRemoveFollowerCommand>();
+            services.AddTransient<IGetFollowersCommand, EfGetFollowersCommand>();
+            services.AddTransient<ICreateOfferCommand, EfCreateOfferCommand>();
+            services.AddTransient<IDeleteOfferCommand, EfDeleteOfferCommand>();
+            services.AddTransient<IEditOfferCommand, EfEditOfferCommand>();
+            services.AddTransient<IGetAdOffersCommand, EfGetAdOffersCommand>();
+            services.AddTransient<ICreateCommentCommand, EfCreateCommentCommand>();
+            services.AddTransient<IEditCommentCommand, EfEditCommentCommand>();
+            services.AddTransient<IGetCommentCommand, EfGetCommentCommand>();
+            services.AddTransient<IGetAdCommentsCommand, EfGetAdCommentsCommand>();
+
             var section = Configuration.GetSection("Email");
 
             var sender =
                 new SmtpEmailSender(section["host"], Int32.Parse(section["port"]), section["fromaddress"], section["password"]);
+
             services.AddSingleton<IEmailSender>(sender);
+
+
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Ads API", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme()
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey",
+
+                });
+                var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    {"Bearer", new string[] { }},
+                };
+                c.AddSecurityRequirement(security);
+
+            });
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
                 {
                     config.Password.RequireDigit = false;
@@ -62,6 +101,7 @@ namespace Ads.API
                 }).AddEntityFrameworkStores<AdsContext>()
                 .AddDefaultTokenProviders();
 
+            // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             services
                 .AddAuthentication(options =>
@@ -84,26 +124,8 @@ namespace Ads.API
                     };
 
                 });
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "Ads API", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme()
-                {
-                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                    Name = "Authorization",
-                    In = "header",
-                    Type = "apiKey",
 
-                });
-                var security = new Dictionary<string, IEnumerable<string>>
-                {
-                    {"Bearer", new string[] { }},
-                };
-                c.AddSecurityRequirement(security);
-
-            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
 
         }
 
@@ -114,9 +136,22 @@ namespace Ads.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                ///app.UseHsts();
+            }
+
+
+
+
+
+
 
             app.UseAuthentication();
+            //app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseStaticFiles();
 
             app.UseSwagger();
 
