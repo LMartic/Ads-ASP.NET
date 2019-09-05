@@ -1,0 +1,21 @@
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.deps.json
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.runtimeconfig.json
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.runtimeconfig.dev.json
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.AssemblyInfoInputs.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.AssemblyInfo.cs
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.deps.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.runtimeconfig.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.runtimeconfig.dev.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\bin\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.AssemblyInfo.cs
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.DataAccess\obj\Debug\netcoreapp2.2\Ads.DataAccess.csprojAssemblyReference.cache
