@@ -1,0 +1,24 @@
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.Application.deps.json
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.Application.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.Application.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.csproj.CoreCompileInputs.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.AssemblyInfoInputs.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.AssemblyInfo.cs
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.csprojAssemblyReference.cache
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\BoksanD\source\repos\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.csproj.CopyComplete
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.DataAccess.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.DataAccess.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.csprojAssemblyReference.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.csproj.CoreCompileInputs.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.AssemblyInfoInputs.cache
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.AssemblyInfo.cs
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.csproj.CopyComplete
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\obj\Debug\netcoreapp2.2\Ads.Application.pdb
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.Application.deps.json
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.Application.dll
+C:\Users\Lazar\Desktop\asp lab\Ads\Ads.Application\bin\Debug\netcoreapp2.2\Ads.Application.pdb

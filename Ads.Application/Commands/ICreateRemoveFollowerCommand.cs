@@ -3,7 +3,7 @@ using Ads.Application.Interfaces;
 
 namespace Ads.Application.Commands
 {
-    public interface ICreateCategoryCommand : ICommand<CreateCategoryDto>
+    public interface ICreateRemoveFollowerCommand : ICommand<CreateFollowerDto>
     {
 
     }

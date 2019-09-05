@@ -1,8 +1,9 @@
 ﻿namespace Ads.Application.Dto
 {
-    public class DeleteAdDto
+    public class CategoryListDto
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
+
+        public string Name { get; set; }
     }
 }
